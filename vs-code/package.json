@@ -1,0 +1,29 @@
+{
+  "name": "stimulusreflx-snippets",
+  "displayName": "Stimulus Reflex Snippets",
+  "description": "Snippets for accessing commonly used patterns with Stimulus Reflex",
+  "version": "0.0.1",
+  "publisher": "estiens",
+  "repository": "https://github.com/estiens/stimulusreflex-snippets",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [{
+        "language": "javascript",
+        "path": "./stimulusreflex.json"
+      },
+      {
+        "language": "ruby",
+        "path": "./stimulusreflex.json"
+      },
+      {
+        "language": "haml",
+        "path": "./stimulusreflex.json"
+      }
+    ]
+  }
+}
