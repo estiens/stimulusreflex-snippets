@@ -1,0 +1,145 @@
+{
+	"new stimulusreflex class": {
+		"scope": "ruby",
+		"prefix": "sr-new",
+		"body": [
+			"class ${1:MyNew}Reflex < ApplicationReflex",
+			"$0 ",
+			"end"
+		],
+		"description": "New Reflex Class"
+	},
+	"haml-data": {
+		"scope": "haml",
+		"prefix": "%hd",
+		"body": [
+			"{data: { $0 } }"
+		]
+	},
+	"data-reflex-action": {
+		"scope": "haml",
+		"prefix": "dr-a",
+		"body": [
+			"data_reflex: '${1:click}->${2:ReflexName}#${3:do_something}', $0"
+		],
+		"description": "data-reflex-action"
+	},
+	"data-reflex-id": {
+		"scope": "haml",
+		"prefix": "dr-id",
+		"body": [
+			"${name}_id: @${name}.id, $0"
+		],
+		"description": "data-reflex-id"
+	},
+	"data-reflex-combined": {
+		"scope": "haml",
+		"prefix": "dr-com",
+		"body": [
+			"reflex_dataset: 'combined', $0"
+		],
+		"description": "data-reflex-combined"
+	},
+	"morph": {
+		"scope": "ruby",
+		"prefix": "sr-morph",
+		"body": [
+			"morph('${1:selector}', render(${2:partial_or_component_or_html})) $0"
+		],
+		"description": "Reflex Morph"
+	},
+	"Reflex Callbacks": {
+		"scope": "ruby",
+		"prefix": "sr-callbacks",
+		"body": [
+			" # will run before increment reflex, can use \"except\" instead of \"only\" for opposite condition",
+			" # before_reflex :do_stuff, only: [:increment]",
+			"",
+			" # will run around all reflexes, must have a yield in the callback",
+			" # around_reflex :do_stuff_around",
+			"",
+			" # will run after all reflexes",
+			" # after_reflex :do_stuff"
+		],
+		"description": "Reflex Callbacks"
+	}
+	"new stimulus reflex controller": {
+		"scope": "js",
+		"prefix": "sr-js",
+		"body": [
+			"export default class extends ApplicationController {",
+			"  static targets = ['target1','target2']",
+			"",
+			"  connect () {",
+			"    super.connect()",
+			"    // more stuff here",
+			"  }",
+			"  ",
+			"  $0",
+			"",
+			"  /*",
+			"  lifecycle methods can correspond to your reflex action name",
+			"",
+			"  beforeReflexAction() {",
+			"  }",
+			"",
+			"  reflexActionSuccess() {",
+			"  }",
+			"",
+			"  reflexActionError() {",
+			"  {",
+			"  ",
+			"  reflexActionHalted() {",
+			"  }",
+			"  ",
+			"  afterReflexAction() {",
+			"  }",
+			"  */",
+			"",
+			"",
+			"  doSomething() {",
+			"    // you can call another reflex from here",
+			"    // this.stimulate('MyReflex#method', ...)",
+			"  }",
+			"}"
+		],
+		"description": "New Reflex Js Controller"
+	},
+	"SR reflex docs": {
+		"scope": "ruby",
+		"prefix": "sr-docs",
+		"body": [
+			"# You have access to the following objects:",
+			"#",
+			"# connection - the ActionCable connection",
+			"# channel - the ActionCable channel",
+			"# request - an ActionDispatch::Request proxy for the socket connection",
+			"# session - the ActionDispatch::Session store for the current visitor",
+			"# url - the URL of the page that triggered the reflex",
+			"# element - a Hash like object that represents the HTML element that triggered the reflex",
+			"# params - an ActionController::Parameters of the closest form",
+			"#",
+			"# Element has values like:",
+			"#",
+			"# element.id  => the HTML element's id in dot notation",
+			"# element[:id] => the HTML element's id w/ symbol accessor",
+			"# element[\"id\"] => the HTML element's id w/ string accessor",
+			"",
+			"# element.dataset => a Hash that represents the HTML element's dataset",
+			"# element.values  => [] only for multiple values",
+			"",
+			"# element[\"id\"]                # => \"example\"",
+			"# element[:tag_name]           # => \"CHECKBOX\"",
+			"# element[:checked]            # => true",
+			"# element.label                # => \"Example\"",
+			"",
+			"# element[\"data-reflex\"]       # => \"ExampleReflex#work\"",
+			"# element.dataset[:reflex]     # => \"ExampleReflex#work\"",
+			"",
+			"# element.value                # => \"123\"",
+			"# element[\"data-value\"]        # => \"123\"",
+			"# element.dataset[:value]      # => \"123\""
+		],
+		"description": "Reminder of what you can access in a reflex"
+	}
+}
